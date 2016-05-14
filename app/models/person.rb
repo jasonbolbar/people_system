@@ -1,5 +1,6 @@
 class Person < ActiveRecord::Base
 
+  # Public: Hash with valid genders and its numerical value
   GENDERS = {male: 1, female: 2}
 
   validates :first_name, presence: true, length: {maximum: 75}
