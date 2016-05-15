@@ -16,18 +16,27 @@ System dependencies
 * RVM (https://rvm.io)
 * MySQL
 
-Clone the proyect using https:
-`
-  git clone https://github.com/jasonbolbar/people_system.git
-`
-or via ssh:
-`
-  git clone git@github.com:jasonbolbar/people_system.git
-`
+Clone the proyect using https:`git clone https://github.com/jasonbolbar/people_system.git`
+or via ssh:`git clone git@github.com:jasonbolbar/people_system.git`
 
 On the folder proyect run the folloing command: 
 ```
   bundle install
 ```
 
-
+On `config` directoy create `database.yml` with the following content:
+```
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: <DATABASE USERNAME>
+  password: <DATABASE PASSWORD>
+  socket: /var/run/mysqld/mysqld.sock
+```
+This configuration will be used to establish the connection to the database. For each environment consider to add the following lines in `database.yml` :
+```
+<ENVIRONMENT>:
+  <<: *default
+  database: <DATABASE_NAME>
+```
