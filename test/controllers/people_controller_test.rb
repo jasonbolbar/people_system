@@ -40,7 +40,7 @@ describe PeopleController do
   it 'destroys person' do
     expect {
       delete :destroy, id: person
-    }.must_change 'Person.count', -1
+    }.must_change 'Person.count', 0
 
     must_redirect_to people_path
   end
