@@ -14,6 +14,7 @@ System dependencies
 * Ruby 2.2.4
 * Redis server (http://redis.io)
 * RVM (https://rvm.io)
+* MySQL
 
 Clone the proyect using https:
 `
@@ -22,6 +23,11 @@ Clone the proyect using https:
 or via ssh:
 `
   git clone git@github.com:jasonbolbar/people_system.git
+`
+
+On the folder proyect run the folloing command: 
+`
+  bundle install
 `
 
 
