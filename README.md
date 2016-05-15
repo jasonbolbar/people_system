@@ -17,7 +17,9 @@ System dependencies
 
 Clone the proyect using https:
 
-´ git clone https://github.com/jasonbolbar/people_system.git´ 
+´
+git clone https://github.com/jasonbolbar/people_system.git
+´ 
 
 
 
