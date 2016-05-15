@@ -56,7 +56,7 @@ class PeopleController < ApplicationController
   # DELETE /people/1.json
   def destroy
     @person.destroy
-    PersonStatusNotifier.new.notify_person_deletion(@person.id)
+    PersonStatusNotifier.new.notify_person_deletion(@person)
     respond_to do |format|
       format.html { redirect_to people_url, notice: 'Person was successfully destroyed.' }
       format.json { head :no_content }

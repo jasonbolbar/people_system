@@ -16,10 +16,30 @@ class PersonMailerJob
   # #=> true
   #
   #Returns boolean value in case the job is added to Resque
-  def self.perform(recipient_id, user_id, method)
-    recipient = Person.find(recipient_id)
-    user = Person.find(user_id)
-    PersonMailer.send(method,recipient,user).deliver
+  def self.perform(recipient_ids, options, method)
+    recipients = Person.find(recipient_ids)
+    send_to_recipients(recipients,options,method)
+  end
+
+  private
+
+  #Internal send an specific email to a list of recipients
+  #
+  #recipients - People whose wil receive the mail
+  #user - Person that receives the action
+  #method - defines which method of the mailer is called
+  #
+  #Examples
+  # send_to_recipients([<Person>,<Person>...,<Person>] <Person> :new_person_email)
+  # #=> [<Person>,<Person>...,<Person>]
+  # send_to_recipients([<Person>,<Person>...,<Person>] <Person> :deleted_person_email)
+  # #=> [<Person>,<Person>...,<Person>]
+  #
+  #Returns List of Person objects
+  def send_to_recipients(recipients,options,method)
+    recipients.each do |recipient|
+      PersonMailer.send(method,recipient,options).deliver
+    end
   end
 
 end

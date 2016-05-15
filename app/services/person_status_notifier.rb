@@ -30,12 +30,8 @@ class PersonStatusNotifier
   #
   #Returns TrueClass
   def notify_person_creation(new_person_id)
-    @people_ids.each do |person_id|
-      if person_id != new_person_id
-        Resque.enqueue(PersonMailerJob, person_id, new_person_id, :new_person_email)
-      end
-    end
-    true
+    @people_ids.reject! { |id| id == new_person_id }
+    Resque.enqueue(PersonMailerJob, @people_ids, {new_person_id:new_person_id}, :new_person_email)
   end
 
   #Public enqueues a job for each Person of the system to notify a person deletion
@@ -48,11 +44,8 @@ class PersonStatusNotifier
   # #=> true
   #
   #Returns TrueClass
-  def notify_person_deletion(deleted_person_id)
-    @people_ids.each do |person_id|
-      Resque.enqueue(PersonMailerJob, person_id, deleted_person_id, :deleted_person_email)
-    end
-    true
+  def notify_person_deletion(deleted_user)
+    Resque.enqueue(PersonMailerJob, @people_ids, {first_name:deleted_user.first_name, last_name:deleted_user.last_name}, :deleted_person_email)
   end
 
 end
