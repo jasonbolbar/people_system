@@ -1,0 +1,22 @@
+= simple_form_for @person, html: { class: "form" } do |f|
+  .form-group
+    = f.input(:first_name)
+  .form-group
+    = f.input(:last_name)
+  .form-group
+    = f.input(:email)
+  .form-group
+    = f.input(:job)
+  .form-group
+    = f.input(:bio, as: :text)
+  .form-group
+    = f.input(:gender, as: :select, collection:Person::GENDERS.keys.map{|t| [t.to_s.titleize,t]},include_blank: false)
+  .form-group
+    =f.input(:birth_date) do
+      = f.date_field(:birth_date)
+  .form-group
+    = f.input(:picture)
+  .form-group
+    .col-lg-offset-2.col-lg-10
+      = f.button :submit, class:'btn-primary'
+      = link_to t('.cancel', :default => t("helpers.links.cancel")), people_path, :class => 'btn btn-default'

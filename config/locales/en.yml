@@ -21,3 +21,5 @@
 
 en:
   hello: "Hello world"
+  person:
+    full_name: "First name & Last name"
