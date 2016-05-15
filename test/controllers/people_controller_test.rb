@@ -17,6 +17,7 @@ describe PeopleController do
   test 'creates person' do
     assert_difference('Person.count', 1) { post :create, person: attributes_for(:person) }
     assert_redirected_to person_path(assigns(:person))
+    assert_queued(PersonMailerJob, [@person.id, assigns(:person).id, 'new_person_email'])
   end
 
   test 'shows person' do
@@ -39,7 +40,9 @@ describe PeopleController do
   end
 
   test 'destroys person' do
+    other_person = create(:person)
     assert_difference('Person.count', -1) { delete :destroy, id: @person }
+    assert_queued(PersonMailerJob, [other_person.id, @person.id, 'deleted_person_email'])
     assert_redirected_to people_path
   end
 end

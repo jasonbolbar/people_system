@@ -40,9 +40,13 @@ gem 'resque'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-rails'
-  gem 'minitest-rails'
   gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'minitest-rails'
   gem 'faker'
+  gem 'resque_unit'
 end
 
 group :development do
