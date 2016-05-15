@@ -16,10 +16,10 @@ System dependencies
 * RVM (https://rvm.io)
 
 Clone the proyect using https:
+`
+  git clone https://github.com/jasonbolbar/people_system.git
+`
 
-´
-git clone https://github.com/jasonbolbar/people_system.git
-´ 
 
 
 
