@@ -13,5 +13,11 @@ Instalation Steps
 System dependencies
 * Ruby 2.2.4
 * Redis server (http://redis.io)
+* RVM (https://rvm.io)
+
+Clone the proyect using https:
+
+´ git clone https://github.com/jasonbolbar/people_system.git´ 
+
 
 
