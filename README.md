@@ -26,8 +26,8 @@ or via ssh:
 `
 
 On the folder proyect run the folloing command: 
-`
+```
   bundle install
-`
+```
 
 
