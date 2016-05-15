@@ -38,7 +38,7 @@ class PersonMailerJob
   #Returns List of Person objects
   def self.send_to_recipients(recipients,options,method)
     recipients.each do |recipient|
-      PersonMailer.send(method,recipient,options).deliver
+      PersonMailer.send(method,recipient,options).deliver_now
     end
   end
 
