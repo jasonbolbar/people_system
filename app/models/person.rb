@@ -29,7 +29,7 @@ class Person < ActiveRecord::Base
     super(GENDERS[gender.to_sym] || 0)
   end
 
-  #private
+  private
 
   #Internal: Add a key/value pair on the errors hash in if the birth date is in the future
   #

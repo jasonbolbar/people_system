@@ -1,47 +1,45 @@
 require 'test_helper'
 
 describe PeopleController do
-  let(:person) { create(:person) }
+  setup { @person = create(:person) }
 
-  it 'gets index' do
+  test 'gets index' do
     get :index
-    value(response).must_be :success?
-    value(assigns(:people)).wont_be :nil?
+    assert_response :success
+    assert_not_nil(:people)
   end
 
-  it 'gets new' do
+  test 'gets new' do
     get :new
-    value(response).must_be :success?
+    assert_response :success
   end
 
-  it 'creates person' do
-    expect {
-      post :create, person: attributes_for(:person)
-    }.must_change 'Person.count'
-
-    must_redirect_to person_path(assigns(:person))
+  test 'creates person' do
+    assert_difference('Person.count', 1) { post :create, person: attributes_for(:person) }
+    assert_redirected_to person_path(assigns(:person))
   end
 
-  it 'shows person' do
-    get :show, id: person
-    value(response).must_be :success?
+  test 'shows person' do
+    get :show, id: @person
+    assert_response :success
   end
 
-  it 'gets edit' do
-    get :edit, id: person
-    value(response).must_be :success?
+  test 'gets edit' do
+    get :edit, id: @person
+    assert_response :success
   end
 
-  it 'updates person' do
-    put :update, id: person, person: attributes_for(:person)
-    must_redirect_to person_path(assigns(:person))
+  test 'updates person' do
+    attributes = attributes_for(:person)
+    put :update, id: @person, person: attributes
+    assert_redirected_to person_path(assigns(:person))
+    updated_attributes = assigns(:person).attributes.delete_if { |k, _| %w(id created_at updated_at).include?(k) }
+    updated_attributes['gender'] = Person::GENDERS.invert[updated_attributes['gender']]
+    assert_equal(updated_attributes.symbolize_keys, attributes)
   end
 
-  it 'destroys person' do
-    expect {
-      delete :destroy, id: person
-    }.must_change 'Person.count', 0
-
-    must_redirect_to people_path
+  test 'destroys person' do
+    assert_difference('Person.count', -1) { delete :destroy, id: @person }
+    assert_redirected_to people_path
   end
 end
