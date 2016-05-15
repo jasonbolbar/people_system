@@ -7,7 +7,7 @@ class Person < ActiveRecord::Base
   validates :last_name, presence: true, length: {maximum: 75}
   validates :email, presence: true, length: {maximum: 254}, uniqueness: true, format: {with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}
   validates :job, length: {maximum: 75}
-  validates :gender, inclusion: {in: [1, 2], message: 'gender is invalid'}
+  validates :gender, inclusion: {in: GENDERS.values, message: 'is invalid'}
   validates :birth_date, presence: true
   validate :not_future_birth_date
   validates :picture, uniqueness: {allow_blank: true}, format:

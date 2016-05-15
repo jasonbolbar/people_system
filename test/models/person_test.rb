@@ -49,7 +49,7 @@ describe Person do
   test 'invalid gender' do
     @person.gender = 'unknown'
     assert_not @person.valid?
-    with_message(:gender, 'gender is invalid')
+    with_message(:gender, 'is invalid')
   end
 
   test 'birth_date blank' do
