@@ -1,45 +1,22 @@
-= form_for @person, html: { class: "form form-horizontal person" } do |f|
+= simple_form_for @person, html: { class: "form" } do |f|
   .form-group
-    = f.label :first_name, class: 'control-label col-lg-2'
-    .col-lg-10
-      = f.text_field :first_name, class: 'form-control', required: true
-    = f.error_span(:first_name)
+    = f.input(:first_name)
   .form-group
-    = f.label :last_name, class: 'control-label col-lg-2'
-    .col-lg-10
-      = f.text_field :last_name, class: 'form-control', required: true
-    = f.error_span(:last_name)
+    = f.input(:last_name)
   .form-group
-    = f.label :email, class: 'control-label col-lg-2'
-    .col-lg-10
-      = f.text_field :email, class: 'form-control', required: true
-    = f.error_span(:email)
+    = f.input(:email)
   .form-group
-    = f.label :job, class: 'control-label col-lg-2'
-    .col-lg-10
-      = f.text_field :job, class: 'form-control', required: true
-    = f.error_span(:job)
+    = f.input(:job)
   .form-group
-    = f.label :bio, class: 'control-label col-lg-2'
-    .col-lg-10
-      = f.text_field :bio, class: 'form-control', required: true
-    = f.error_span(:bio)
+    = f.input(:bio, as: :text)
   .form-group
-    = f.label :gender, class: 'control-label col-lg-2'
-    .col-lg-10
-      = f.text_field :gender, class: 'form-control', required: true
-    = f.error_span(:gender)
+    = f.input(:gender, as: :select, collection:Person::GENDERS.keys.map{|t| [t.to_s.titleize,t]},include_blank: false)
   .form-group
-    = f.label :birth_date, class: 'control-label col-lg-2'
-    .col-lg-10
-      = f.text_field :birth_date, class: 'form-control', required: true
-    = f.error_span(:birth_date)
+    =f.input(:birth_date) do
+      = f.date_field(:birth_date)
   .form-group
-    = f.label :picture, class: 'control-label col-lg-2'
-    .col-lg-10
-      = f.text_field :picture, class: 'form-control', required: true
-    = f.error_span(:picture)
+    = f.input(:picture)
   .form-group
     .col-lg-offset-2.col-lg-10
-      = f.submit nil,class: 'btn btn-primary'
+      = f.button :submit, class:'btn-primary'
       = link_to t('.cancel', :default => t("helpers.links.cancel")), people_path, :class => 'btn btn-default'
