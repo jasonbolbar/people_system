@@ -1,28 +1,13 @@
-== README
+People System
+========================
+The purpose of this application is to allow a user to add the basic information about a person and notify to the existent people in the system when a user is added or deleted.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Delivery Date
+===================
 
-Things you may want to cover:
+Tuesday, May 17th, 2016
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Instalation Steps
+===================
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
