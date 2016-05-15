@@ -36,7 +36,7 @@ class PersonStatusNotifier
 
   #Public enqueues a job for each Person of the system to notify a person deletion
   #
-  #deleted_person_id - id of deleted person
+  #deleted_person - Person Object to be deleted
   #
   #Examples
   #

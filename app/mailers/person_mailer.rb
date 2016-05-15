@@ -12,7 +12,7 @@ class PersonMailer < ApplicationMailer
   #
   #Returns Mail::Message object
   def new_person_email(recipient, options)
-    @user = Person.find(options['new_user_id'])
+    @user = Person.find(options['new_person_id'])
     @recipient = recipient
     mail(to: @recipient.email, subject: 'People App - New person added')
   end

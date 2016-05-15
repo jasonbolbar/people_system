@@ -36,7 +36,7 @@ class PersonMailerJob
   # #=> [<Person>,<Person>...,<Person>]
   #
   #Returns List of Person objects
-  def send_to_recipients(recipients,options,method)
+  def self.send_to_recipients(recipients,options,method)
     recipients.each do |recipient|
       PersonMailer.send(method,recipient,options).deliver
     end
