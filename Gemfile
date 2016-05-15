@@ -24,6 +24,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml'
 # Provides Haml generators for Rails 4
 gem 'haml-rails'
+# Redis-backed Ruby library for creating background jobs
+gem 'resque'
 
 
 # Use ActiveModel has_secure_password
