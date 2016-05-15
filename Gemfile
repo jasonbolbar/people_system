@@ -26,6 +26,8 @@ gem 'haml'
 gem 'haml-rails'
 # Redis-backed Ruby library for creating background jobs
 gem 'resque'
+# Bootstrap 3 assets
+gem 'twitter-bootstrap-rails'
 
 
 # Use ActiveModel has_secure_password
