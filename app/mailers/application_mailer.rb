@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: ENV[:mailer][:from]
+  default from: "People app <#{Rails.application.secrets[:mailer]['from']}>"
   layout 'mailer'
 end
