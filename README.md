@@ -19,7 +19,9 @@ Clone the proyect using https:
 `
   git clone https://github.com/jasonbolbar/people_system.git
 `
-
-
+or via ssh:
+`
+  git clone git@github.com:jasonbolbar/people_system.git
+`
 
 
