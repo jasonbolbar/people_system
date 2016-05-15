@@ -1,6 +1,6 @@
 ==People System
 ========================
-The purpose of this application is to allow a user to add the basic information about a person and notify to the existent people in the system when a user is added or deleted.
+The purpose of this application is to allow a user to add the basic information about a person and notify via email to the existent people in the system when a user is added or deleted.
 
 ==Delivery Date
 ===================
