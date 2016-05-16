@@ -24,7 +24,7 @@ On the folder project consider install the bundler gem running following command
 
 ` gem install bundler`
 
-After that run the folloing command: 
+After that run the following command: 
 ```
   bundle install
 ```
