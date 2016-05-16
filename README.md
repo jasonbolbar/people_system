@@ -7,7 +7,7 @@ Delivery Date
 
 Tuesday, May 17th, 2016
 
-Install Steps
+Installation Steps
 ===================
 
 System dependencies
