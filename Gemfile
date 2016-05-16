@@ -11,9 +11,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -28,32 +25,29 @@ gem 'haml-rails'
 gem 'resque'
 # Bootstrap 3 assets
 gem 'twitter-bootstrap-rails'
-
+# Provides view helpers to design forms easily
 gem 'simple_form'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # Debugging gem
   gem 'pry-rails'
+  # Easy way to create records for testing
   gem 'factory_girl_rails'
 end
 
 group :test do
+  # Minitest Rails assertions
   gem 'minitest-rails'
+  # Creates fake data for testing
   gem 'faker'
+  # Assertion helpers for Resque
   gem 'resque_unit'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  # Preview email in the default browser instead of sending it
+  gem 'letter_opener'
 end
 
