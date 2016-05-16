@@ -41,19 +41,25 @@ gem 'simple_form'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # Debugging gem
   gem 'pry-rails'
+  # Easy way to create records for testing
   gem 'factory_girl_rails'
 end
 
 group :test do
+  # Minitest Rails assertions
   gem 'minitest-rails'
+  # Creates fake data for testing
   gem 'faker'
+  # Assertion helpers for Resque
   gem 'resque_unit'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  # Preview email in the default browser instead of sending it
+  gem 'letter_opener'
 end
 
